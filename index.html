@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Final Presentation & Future of Agentic AI — General Assembly BAA 16.0</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900&family=Barlow+Condensed:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --black:#0d0d0d;--black2:#1a1a1a;--black3:#252525;--black4:#333;
+  --line:#2e2e2e;--line2:#404040;--gray-dk:#555;--gray:#888;
+  --gray-lt:#bbb;--white:#fff;
+  --GA-red:#e8333a;--GA-red2:#ff4a50;
+  --yellow:#f5c518;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;
+  --teal:#14b8a6;--orange:#f97316;
+  --r:4px;--r-lg:10px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;background:var(--black);color:var(--white);font-size:16px;line-height:1.6;min-height:100vh}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--black2)}::-webkit-scrollbar-thumb{background:var(--black4);border-radius:3px}
+header{position:sticky;top:0;z-index:500;background:var(--black);border-bottom:2px solid var(--GA-red);display:flex;align-items:stretch;height:58px}
+.ga-logo{display:flex;align-items:center;gap:10px;padding:0 20px;border-right:1px solid var(--line);flex-shrink:0;cursor:pointer}
+.ga-mark{width:32px;height:32px;background:var(--GA-red);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;color:#fff;border-radius:2px}
+.ga-name{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--gray-lt);text-transform:uppercase;line-height:1.2}
+.ga-name span{display:block;font-size:10px;color:var(--gray);font-weight:600}
+.tab-bar{display:flex;align-items:stretch;overflow-x:auto;flex:1;scrollbar-width:none}
+.tab-bar::-webkit-scrollbar{display:none}
+.tab{display:flex;align-items:center;padding:0 13px;font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;color:var(--gray);cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;transition:color .15s,border-color .15s;position:relative;top:2px}
+.tab:hover{color:#fff}.tab.active{color:#fff;border-bottom-color:var(--GA-red)}
+.hd-end{display:flex;align-items:center;padding:0 18px;border-left:1px solid var(--line);flex-shrink:0}
+.prog-chip{background:var(--GA-red);color:#fff;font-family:'JetBrains Mono',monospace;font-size:11px;padding:4px 12px;border-radius:20px;white-space:nowrap}
+.section{display:none}.section.active{display:block}
+.wrap{max-width:920px;margin:0 auto;padding:48px 24px 80px}
+.eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--GA-red);margin-bottom:10px;display:block}
+h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.4rem,6vw,3.8rem);font-weight:900;line-height:1.05;color:#fff;margin-bottom:16px}
+h1 .red{color:var(--GA-red)}
+h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.6rem,4vw,2.3rem);font-weight:800;line-height:1.1;color:#fff;margin-bottom:8px}
+h2 .red{color:var(--GA-red)}
+.lead{font-size:1.02rem;color:var(--gray-lt);line-height:1.72;margin-bottom:28px;max-width:680px}
+.hr{height:1px;background:var(--line);margin:36px 0}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:var(--r);font-family:'Barlow',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;border:2px solid transparent;transition:all .15s;white-space:nowrap}
+.btn-red{background:var(--GA-red);color:#fff;border-color:var(--GA-red)}.btn-red:hover{background:var(--GA-red2);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--gray-lt);border:2px solid var(--line2);padding:10px 20px;font-size:.88rem;font-weight:600;cursor:pointer;border-radius:var(--r);transition:all .15s}.btn-ghost:hover{border-color:var(--gray);color:#fff}
+.btn-green{background:var(--green);color:var(--black);border:none;border-radius:var(--r);padding:11px 24px;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .15s}
+.card{background:var(--black2);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;margin-bottom:16px}
+.card-rb{border-top:3px solid var(--GA-red)}
+.callout{border-radius:var(--r-lg);padding:14px 18px;margin:12px 0;font-size:.88rem;line-height:1.65}
+.callout-tip{background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);color:#93c5fd}
+.callout-warn{background:rgba(245,197,24,.08);border:1px solid rgba(245,197,24,.2);color:#fde68a}
+.callout-success{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);color:#86efac}
+.callout-purple{background:rgba(168,85,247,.08);border:1px solid rgba(168,85,247,.25);color:#d8b4fe}
+.callout strong{color:#fff}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.a1{animation:fadeUp .35s ease both}.a2{animation:fadeUp .35s .1s ease both}.a3{animation:fadeUp .35s .2s ease both}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero-kicker{display:inline-flex;align-items:center;gap:8px;background:var(--black3);border:1px solid var(--line);border-radius:var(--r);padding:6px 14px;margin-bottom:20px;font-size:12px;font-weight:600;color:var(--gray-lt);letter-spacing:.04em}
+.hero-kicker .dot{width:8px;height:8px;background:var(--GA-red);border-radius:50%;animation:pulse 2s infinite}
+.roadmap{display:flex;flex-direction:column}
+.rm-item{display:flex;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.rm-item:last-child{border-bottom:none}
+.rm-dot{width:36px;height:36px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;border:2px solid var(--line);background:var(--black3);color:var(--gray);transition:all .25s}
+.rm-dot.done{background:var(--green);border-color:var(--green);color:var(--black)}
+.rm-label{font-size:.95rem;font-weight:600;color:var(--gray);padding-top:6px}
+.rm-label.done{color:var(--green)}
+.rm-sub{font-size:.8rem;color:var(--gray-dk);margin-top:2px}
+
+/* ── COURSE MAP ── */
+.course-map{display:grid;grid-template-columns:1fr;gap:0;position:relative}
+.phase-block{border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;margin-bottom:3px}
+.phase-header{padding:14px 20px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:background .15s}
+.phase-header:hover{background:var(--black3)}
+.phase-icon{font-size:1.5rem;flex-shrink:0;width:36px;text-align:center}
+.phase-label{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:2px}
+.phase-title{font-size:.95rem;font-weight:700;color:#fff}
+.phase-arrow{margin-left:auto;font-size:.75rem;color:var(--gray-dk);transition:transform .2s}
+.phase-block.open .phase-arrow{transform:rotate(90deg)}
+.phase-body{display:none;padding:0 20px 20px;border-top:1px solid var(--line)}
+.phase-block.open .phase-body{display:block}
+.lab-row{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);align-items:flex-start}
+.lab-row:last-child{border-bottom:none}
+.lab-num{font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:700;background:var(--black3);border:1px solid var(--line);border-radius:3px;padding:2px 7px;color:var(--gray-dk);flex-shrink:0;margin-top:2px;letter-spacing:.06em}
+.lab-title{font-size:.88rem;font-weight:600;color:var(--gray-lt);flex:1}
+.lab-concept{font-size:.78rem;color:var(--gray-dk);line-height:1.45;flex:1.5}
+.lab-connector{font-size:.78rem;color:var(--teal);font-style:italic}
+/* Synthesis diagram */
+.synth-ring{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:24px}
+.synth-node{padding:10px 16px;border-radius:var(--r-lg);font-size:.82rem;font-weight:700;text-align:center;line-height:1.3;transition:all .2s;cursor:default}
+.synth-node:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.4)}
+.synth-center{background:var(--GA-red);color:#fff;padding:16px 24px;font-size:1rem;font-weight:800}
+
+/* ── PRESENTATION BUILDER ── */
+.pres-section{background:var(--black2);border:1.5px solid var(--line);border-radius:var(--r-lg);padding:22px;margin-bottom:12px;transition:border-color .2s;position:relative}
+.pres-section.filled{border-color:rgba(34,197,94,.35)}
+.pres-section.filled::after{content:'✓';position:absolute;top:16px;right:16px;font-size:.85rem;font-weight:700;color:var(--green)}
+.pres-label{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:3px;display:flex;align-items:center;gap:10px}
+.pres-badge{font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:.06em;text-transform:uppercase}
+.pres-hint{font-size:.82rem;color:var(--gray-dk);font-style:italic;margin-bottom:12px;line-height:1.5}
+.pres-input{width:100%;background:var(--black3);border:1.5px solid var(--line2);border-radius:var(--r);padding:10px 14px;font-family:'Barlow',sans-serif;font-size:.9rem;color:var(--gray-lt);outline:none;transition:border-color .15s}
+.pres-input:focus{border-color:var(--GA-red)}
+.pres-input::placeholder{color:var(--gray-dk)}
+.pres-textarea{width:100%;background:var(--black3);border:1.5px solid var(--line2);border-radius:var(--r);padding:10px 14px;font-family:'Barlow',sans-serif;font-size:.9rem;color:var(--gray-lt);resize:vertical;min-height:80px;outline:none;line-height:1.65;transition:border-color .15s}
+.pres-textarea:focus{border-color:var(--GA-red)}
+.pres-textarea::placeholder{color:var(--gray-dk)}
+.pres-select{width:100%;background:var(--black3);border:1.5px solid var(--line2);border-radius:var(--r);padding:10px 14px;font-family:'Barlow',sans-serif;font-size:.9rem;color:#fff;outline:none;cursor:pointer;transition:border-color .15s}
+.pres-select:focus{border-color:var(--GA-red)}
+/* Slide preview */
+.slide-preview{background:#080808;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;margin-top:20px}
+.slide-header{background:var(--GA-red);padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
+.slide-header-title{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.slide-body{padding:28px 32px;min-height:220px}
+.slide-agent-title{font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:900;color:#fff;line-height:1.1;margin-bottom:6px}
+.slide-tagline{font-size:1.05rem;color:var(--gray-lt);margin-bottom:20px}
+.slide-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.slide-cell{background:var(--black2);border:1px solid var(--line);border-radius:var(--r-lg);padding:12px;font-size:.82rem;color:var(--gray-lt);line-height:1.55}
+.slide-cell-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--GA-red);margin-bottom:5px}
+
+/* ── IMPACT EVALUATOR ── */
+.impact-slider-wrap{display:flex;flex-direction:column;gap:16px}
+.impact-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.impact-row:last-child{border-bottom:none}
+.impact-label{font-size:.88rem;font-weight:600;color:var(--gray-lt);flex:1;min-width:160px}
+.impact-slider{flex:2;-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;background:var(--black4);outline:none;cursor:pointer}
+.impact-slider::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--GA-red);cursor:pointer;border:2px solid var(--black);transition:transform .15s}
+.impact-slider::-webkit-slider-thumb:hover{transform:scale(1.2)}
+.impact-val{font-family:'JetBrains Mono',monospace;font-size:.82rem;font-weight:700;min-width:60px;text-align:right;transition:color .2s}
+/* Radar chart */
+.radar-wrap{display:flex;flex-direction:column;align-items:center;padding:16px 0}
+
+/* ── RISK MATRIX ── */
+.risk-matrix{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:4px;width:100%;aspect-ratio:1.2;position:relative}
+.risk-cell{border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;text-align:center;color:rgba(255,255,255,.4);letter-spacing:.06em;text-transform:uppercase;position:relative;min-height:80px;transition:all .2s;cursor:default}
+.risk-card{position:absolute;background:var(--black);border-radius:var(--r-lg);padding:8px 11px;font-size:.74rem;color:var(--gray-lt);line-height:1.45;width:140px;z-index:10;border:1.5px solid var(--line2);pointer-events:none;opacity:0;transition:opacity .15s;box-shadow:0 8px 24px rgba(0,0,0,.6)}
+.risk-dot{width:10px;height:10px;border-radius:50%;margin:0 auto 3px;border:2px solid rgba(0,0,0,.4)}
+.risk-item{position:absolute;display:flex;flex-direction:column;align-items:center;cursor:pointer;transition:transform .2s;z-index:5}
+.risk-item:hover{transform:scale(1.15)}
+.risk-item:hover .risk-card{opacity:1}
+/* Axes labels */
+.matrix-y-label{position:absolute;left:-36px;top:50%;transform:translateY(-50%) rotate(-90deg);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-dk);white-space:nowrap}
+.matrix-x-label{text-align:center;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-dk);margin-top:6px}
+
+/* ── FUTURES EXPLORER ── */
+.future-card{background:var(--black2);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;margin-bottom:10px}
+.future-header{padding:16px 20px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:background .15s}
+.future-header:hover{background:var(--black3)}
+.future-icon{font-size:1.6rem;flex-shrink:0;width:36px;text-align:center}
+.future-horizon{font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:.06em;text-transform:uppercase;flex-shrink:0}
+.future-title{font-size:.96rem;font-weight:700;color:#fff;flex:1}
+.future-arrow{color:var(--gray-dk);transition:transform .2s;flex-shrink:0;font-size:.8rem}
+.future-card.open .future-arrow{transform:rotate(90deg)}
+.future-body{display:none;padding:0 20px 20px;border-top:1px solid var(--line)}
+.future-card.open .future-body{display:block}
+.future-impact-bar{height:6px;border-radius:3px;margin:8px 0;background:var(--black4);overflow:hidden}
+.future-impact-fill{height:100%;border-radius:3px}
+.future-discuss{background:var(--black3);border-left:3px solid var(--purple);border-radius:0 var(--r-lg) var(--r-lg) 0;padding:12px 16px;margin-top:14px;font-size:.84rem;color:var(--gray-lt);line-height:1.65}
+.future-discuss strong{color:#fff;display:block;margin-bottom:4px}
+/* Discussion question MCQ */
+.fq-opt{background:var(--black2);border:1.5px solid var(--line2);border-radius:var(--r-lg);padding:10px 14px;cursor:pointer;font-size:.84rem;color:var(--gray-lt);margin-bottom:7px;transition:all .15s;display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left}
+.fq-opt:hover:not(.disabled){border-color:var(--GA-red);color:#fff}
+.fq-opt.selected{border-color:var(--GA-red);background:rgba(232,51,58,.07)}
+.fq-opt.best{border-color:var(--green);background:rgba(34,197,94,.07);color:#fff;cursor:default}
+.fq-opt.ok{border-color:var(--yellow);background:rgba(245,197,24,.06);cursor:default}
+.fq-opt.disabled{cursor:default}
+.fq-k{width:22px;height:22px;border-radius:4px;flex-shrink:0;background:var(--black3);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:700;color:var(--gray);margin-top:1px}
+.fq-opt.best .fq-k{background:var(--green);border-color:var(--green);color:var(--black)}
+.fq-opt.ok .fq-k{background:var(--yellow);border-color:var(--yellow);color:var(--black)}
+.future-progress{margin-top:6px;font-size:.72rem;font-family:'JetBrains Mono',monospace;color:var(--gray-dk)}
+
+/* ── QUIZ ── */
+.qz-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px}
+.qz-meta span{font-size:.85rem;color:var(--gray)}
+.prog-bar{height:4px;background:var(--black3);border-radius:2px;margin-bottom:28px;overflow:hidden}
+.prog-fill{height:100%;background:var(--GA-red);border-radius:2px;transition:width .4s}
+.quiz-q{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:700;line-height:1.3;color:#fff;margin-bottom:20px}
+.q-opts{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.q-opt{background:var(--black2);border:2px solid var(--line);border-radius:var(--r-lg);padding:14px 18px;cursor:pointer;display:flex;align-items:flex-start;gap:14px;font-size:.95rem;color:var(--gray-lt);transition:all .16s;text-align:left;width:100%}
+.q-opt:hover:not(.disabled){border-color:var(--GA-red);color:#fff;background:rgba(232,51,58,.05)}
+.q-opt.correct{border-color:var(--green);background:rgba(34,197,94,.07);color:#fff}
+.q-opt.wrong{border-color:var(--GA-red);background:rgba(232,51,58,.08);color:#fff}
+.q-opt.disabled{cursor:default}
+.q-opt-k{width:30px;height:30px;border-radius:6px;flex-shrink:0;background:var(--black3);border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;color:var(--gray)}
+.q-opt.correct .q-opt-k{background:var(--green);border-color:var(--green);color:var(--black)}
+.q-opt.wrong .q-opt-k{background:var(--GA-red);border-color:var(--GA-red);color:#fff}
+.q-opt:hover:not(.disabled) .q-opt-k{border-color:var(--GA-red);color:var(--GA-red)}
+.fb-box{display:none;border-radius:var(--r-lg);padding:14px 18px;font-size:.92rem;line-height:1.6;margin-bottom:14px}
+.fb-box.show{display:flex;gap:10px;align-items:flex-start}
+.fb-box.ok{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);color:#86efac}
+.fb-box.bad{background:rgba(232,51,58,.1);border:1px solid rgba(232,51,58,.3);color:#fca5a5}
+/* Results */
+.score-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.score-row:last-child{border-bottom:none}
+.score-bar-wrap{width:80px;height:3px;background:var(--black3);border-radius:2px;flex-shrink:0}
+.score-bar-fill{height:100%;border-radius:2px}
+
+/* ── GRADUATION ── */
+.grad-ring{position:relative;width:160px;height:160px;margin:0 auto 24px}
+.grad-pct{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.grad-num{font-family:'Barlow Condensed',sans-serif;font-size:2.6rem;font-weight:900;line-height:1}
+.grad-sub{font-size:.75rem;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+@keyframes starPop{0%{transform:scale(0) rotate(-30deg);opacity:0}60%{transform:scale(1.2) rotate(5deg)}100%{transform:scale(1) rotate(0);opacity:1}}
+.star-badge{display:inline-block;font-size:3rem;animation:starPop .6s cubic-bezier(.34,1.56,.64,1) both}
+
+/* ── C'MON GRAD PARTICLE ── */
+@keyframes float1{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-8px) rotate(5deg)}}
+@keyframes float2{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(-4deg)}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="ga-logo" onclick="nav('intro')">
+    <div class="ga-mark">GA</div>
+    <div class="ga-name">General Assembly<span>Build AI Agents · BAA 16.0</span></div>
+  </div>
+  <div class="tab-bar">
+    <div class="tab active" id="t-intro"   onclick="nav('intro')">⬡ Overview</div>
+    <div class="tab"        id="t-synthesis" onclick="nav('synthesis')">🗺 Course Map</div>
+    <div class="tab"        id="t-demo"    onclick="nav('demo')">🎤 Present</div>
+    <div class="tab"        id="t-impact"  onclick="nav('impact')">💼 Impact</div>
+    <div class="tab"        id="t-risk"    onclick="nav('risk')">⚠️ Risk</div>
+    <div class="tab"        id="t-future"  onclick="nav('future')">🔭 Future</div>
+    <div class="tab"        id="t-quiz"    onclick="nav('quiz')">◇ Check</div>
+    <div class="tab"        id="t-results" onclick="nav('results')">🎓 Graduate</div>
+  </div>
+  <div class="hd-end"><div class="prog-chip" id="progressChip">0 / 5</div></div>
+</header>
+
+<!-- ══════════ INTRO ══════════ -->
+<div class="section active" id="s-intro">
+<div class="wrap">
+  <div class="a1" style="padding-bottom:40px;border-bottom:1px solid var(--line);margin-bottom:36px">
+    <div class="hero-kicker"><div class="dot"></div>Capstone · Module 16 · BAA 16.0</div>
+    <h1>Final Presentation &<br/><span class="red">Future of Agentic AI</span></h1>
+    <p class="lead">You've built agents. You've secured them, scaled them, monitored them. Now you present them — and look forward at what comes next. This module is the finish line and the launch pad. You'll synthesize everything the course covered, demonstrate your prototype to a real audience, and develop a point of view on where Agentic AI is heading.</p>
+    <button class="btn btn-red" onclick="nav('synthesis')">Review the Full Journey →</button>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:36px" class="a2">
+    <div class="card" style="padding:18px 20px;display:flex;gap:14px;margin-bottom:0"><div style="font-size:1.8rem;flex-shrink:0">🗺</div><div><strong style="color:#fff;display:block;margin-bottom:4px">Course Synthesis</strong><div style="font-size:.86rem;color:var(--gray-lt);line-height:1.5">See how all 15 modules connect into a single coherent agent-building framework.</div></div></div>
+    <div class="card" style="padding:18px 20px;display:flex;gap:14px;margin-bottom:0"><div style="font-size:1.8rem;flex-shrink:0">🎤</div><div><strong style="color:#fff;display:block;margin-bottom:4px">Final Presentation</strong><div style="font-size:.86rem;color:var(--gray-lt);line-height:1.5">Build and preview your structured demo pitch: workflow, challenge, and business value.</div></div></div>
+    <div class="card" style="padding:18px 20px;display:flex;gap:14px;margin-bottom:0"><div style="font-size:1.8rem;flex-shrink:0">💼</div><div><strong style="color:#fff;display:block;margin-bottom:4px">Business Impact</strong><div style="font-size:.86rem;color:var(--gray-lt);line-height:1.5">Score your agent across 5 business dimensions and generate a radar assessment.</div></div></div>
+    <div class="card" style="padding:18px 20px;display:flex;gap=14px;margin-bottom:0"><div style="font-size:1.8rem;flex-shrink:0">⚠️</div><div><strong style="color:#fff;display:block;margin-bottom:4px">Risk Matrix</strong><div style="font-size:.86rem;color:var(--gray-lt);line-height:1.5">Plot your agent's risks by likelihood × impact and map mitigation strategies.</div></div></div>
+    <div class="card" style="padding:18px 20px;display:flex;gap:14px;margin-bottom:0"><div style="font-size:1.8rem;flex-shrink:0">🔭</div><div><strong style="color:#fff;display:block;margin-bottom:4px">Futures Explorer</strong><div style="font-size:.86rem;color:var(--gray-lt);line-height:1.5">Six emerging developments in Agentic AI — from multi-agent systems to autonomous research.</div></div></div>
+  </div>
+
+  <div class="hr"></div>
+  <span class="eyebrow">Module Roadmap</span>
+  <div class="card a3"><div class="roadmap">
+    <div class="rm-item"><div class="rm-dot" id="dot-synthesis">1</div><div><div class="rm-label" id="lbl-synthesis">Course Synthesis — How It All Connects</div><div class="rm-sub">Every module mapped to the agent-building framework, in one view</div></div></div>
+    <div class="rm-item"><div class="rm-dot" id="dot-demo">2</div><div><div class="rm-label" id="lbl-demo">Build Your Final Presentation</div><div class="rm-sub">Complete the 5-section pitch structure — workflow, challenge, and business case</div></div></div>
+    <div class="rm-item"><div class="rm-dot" id="dot-impact">3</div><div><div class="rm-label" id="lbl-impact">Business Impact Evaluation</div><div class="rm-sub">Score your agent across ROI, scalability, time-to-value, risk, and differentiation</div></div></div>
+    <div class="rm-item"><div class="rm-dot" id="dot-risk">4</div><div><div class="rm-label" id="lbl-risk">Risk & Scalability Assessment</div><div class="rm-sub">Plot your agent's key risks on a likelihood × impact matrix</div></div></div>
+    <div class="rm-item"><div class="rm-dot" id="dot-future">5</div><div><div class="rm-label" id="lbl-future">Futures Explorer — 6 emerging developments</div><div class="rm-sub">Explore what Agentic AI looks like in 12, 24, and 36+ months</div></div></div>
+    <div class="rm-item"><div class="rm-dot" id="dot-quiz">—</div><div><div class="rm-label">Final Knowledge Check · 7 questions</div></div></div>
+  </div></div>
+</div>
+</div>
+
+<!-- ══════════ SYNTHESIS ══════════ -->
+<div class="section" id="s-synthesis">
+<div class="wrap">
+  <span class="eyebrow">The Full Picture</span>
+  <h2>15 Modules. <span class="red">One Framework.</span></h2>
+  <p class="lead">Every lab you completed fits into one of five phases of the agent-building lifecycle. Expand each phase to see how the modules connect — and which core principle each one taught.</p>
+
+  <div class="callout callout-tip" style="margin-bottom:20px">
+    <strong>💡 Why this matters for your presentation:</strong> When you explain your agent, you're not just describing a tool — you're describing a system that spans all five phases. Reviewers who understand Agentic AI will ask about design decisions from every layer.
+  </div>
+
+  <div id="courseMapEl"></div>
+
+  <div class="hr"/>
+  <span class="eyebrow">The Agent Ecosystem — All Concepts Connected</span>
+  <div class="card" style="padding:20px">
+    <div class="synth-ring" id="synthRing"></div>
+    <div class="callout callout-purple" style="margin-top:4px">
+      <strong>🔮 The through-line:</strong> Every module feeds the same central insight — an agent's intelligence is not in the model. It's in how the model is <em>orchestrated, constrained, evaluated, and improved</em>. The model is the engine. Everything you built in this course is the vehicle.
+    </div>
+  </div>
+
+  <div style="margin-top:24px"><button class="btn btn-red" onclick="markDone('synthesis');nav('demo')">Build Your Presentation →</button></div>
+</div>
+</div>
+
+<!-- ══════════ DEMO ══════════ -->
+<div class="section" id="s-demo">
+<div class="wrap">
+  <span class="eyebrow">Section 02 · Final Presentation</span>
+  <h2>Build Your <span class="red">Demo Pitch</span></h2>
+  <p class="lead">A great agent demo has five components. Fill them all out — the slide preview updates live as you type. When presenting, you have 4 minutes: 30 seconds per section with 1.5 minutes for live demo. Practice the flow before you get in front of the room.</p>
+
+  <div class="callout callout-warn" style="margin-bottom:20px">
+    <strong>⏱ 4-minute demo structure:</strong> Agent name & one-line purpose (30s) → Live workflow walkthrough (90s) → One challenge overcome (45s) → Business value + metrics (30s) → Q&A setup (15s)
+  </div>
+
+  <div id="presBuilder"></div>
+
+  <div id="slidePreview" style="display:none;margin-top:4px"></div>
+  <div id="demoSubmitRow" style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+    <button class="btn btn-red" onclick="submitDemo()">Preview My Slide</button>
+    <button class="btn btn-ghost" id="demoNextBtn" style="display:none" onclick="markDone('demo');nav('impact')">Evaluate Business Impact →</button>
+  </div>
+</div>
+</div>
+
+<!-- ══════════ IMPACT ══════════ -->
+<div class="section" id="s-impact">
+<div class="wrap">
+  <span class="eyebrow">Section 03 · Business Impact Evaluation</span>
+  <h2>Score Your <span class="red">Agent's Impact</span></h2>
+  <p class="lead">Before presenting to stakeholders, you need a clear-eyed assessment of your agent's business value. Rate your agent across 5 dimensions using the sliders. Your scores generate a radar chart — the visual you'd show to a CFO or VP who wants the business case in 30 seconds.</p>
+
+  <div class="card">
+    <div class="impact-slider-wrap" id="impactSliders"></div>
+  </div>
+
+  <div class="card" style="margin-top:0">
+    <div style="display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:220px">
+        <span class="eyebrow" style="margin-bottom:16px">Impact Radar</span>
+        <canvas id="radarCanvas" width="280" height="280"></canvas>
+      </div>
+      <div style="flex:1.4;min-width:260px" id="impactSummary"></div>
+    </div>
+  </div>
+
+  <div style="margin-top:8px"><button class="btn btn-red" onclick="markDone('impact');nav('risk')">Assess Risk →</button></div>
+</div>
+</div>
+
+<!-- ══════════ RISK ══════════ -->
+<div class="section" id="s-risk">
+<div class="wrap">
+  <span class="eyebrow">Section 04 · Risk & Scalability Assessment</span>
+  <h2>Map Your <span class="red">Risk Matrix</span></h2>
+  <p class="lead">Every agent carries risks. The matrix below plots 8 common agent risks by likelihood (x-axis) vs. impact (y-axis). Hover any risk dot to read the description and mitigation. For your presentation, identify which 2 risks are most relevant to your agent and how you've addressed them.</p>
+
+  <div class="callout callout-warn" style="margin-bottom:20px">
+    <strong>⚠️ Presenting risk isn't weakness — it's credibility.</strong> Stakeholders who've been burned by AI projects know every system has risks. The teams that pre-empt the risk questions with clear mitigations are the teams that get funded and deployed.
+  </div>
+
+  <div style="display:flex;justify-content:center;margin-bottom:20px">
+    <div style="position:relative;padding-left:44px;padding-bottom:32px">
+      <div class="matrix-y-label">↑ Impact</div>
+      <div class="risk-matrix" id="riskMatrix" style="width:min(480px,100%)"></div>
+      <div class="matrix-x-label">Likelihood →</div>
+    </div>
+  </div>
+
+  <div class="card card-rb" style="margin-bottom:16px">
+    <div style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-dk);margin-bottom:14px">Which of these mitigation strategies best describes your approach to the highest-impact risk in your agent?</div>
+    <div id="riskMCQ"></div>
+    <div id="riskFB" style="display:none;margin-top:4px"></div>
+  </div>
+
+  <div id="riskNext" style="display:none;margin-top:16px">
+    <button class="btn btn-red" onclick="nav('future')">Explore the Future →</button>
+  </div>
+</div>
+</div>
+
+<!-- ══════════ FUTURE ══════════ -->
+<div class="section" id="s-future">
+<div class="wrap">
+  <span class="eyebrow">Section 05 · Looking Forward</span>
+  <h2>The Next Wave of <span class="red">Agentic AI</span></h2>
+  <p class="lead">The agents you built in this course represent the current frontier. But the frontier is moving. Explore 6 developments that will reshape what agents can do — and what you'll need to know to build with them. Open each card, read the outlook, and answer the discussion question.</p>
+
+  <div class="callout callout-purple" style="margin-bottom:20px">
+    <strong>🔮 Discussion questions have no single correct answer</strong> — they're designed to surface the tension between capability and risk, speed and reliability, autonomy and oversight. Your goal is to articulate a defensible position, not find the textbook answer.
+  </div>
+
+  <div id="futureList"></div>
+  <div class="future-progress" id="futureProgress">0 / 6 topics explored</div>
+  <div id="futureNext" style="display:none;margin-top:16px">
+    <button class="btn btn-red" onclick="markDone('future');nav('quiz')">Final Knowledge Check →</button>
+  </div>
+</div>
+</div>
+
+<!-- ══════════ QUIZ ══════════ -->
+<div class="section" id="s-quiz">
+<div class="wrap">
+  <span class="eyebrow">Final Knowledge Check</span>
+  <h2>7 <span class="red">Questions</span></h2>
+  <p class="lead">Covering the full course arc: agent design, evaluation, scalability, monitoring, ethics, and the future. 70% to pass.</p>
+  <div id="quizActive">
+    <div class="qz-meta"><span id="qMeta">Question 1 of 7</span><span id="qScoreTxt">Score: 0 / 0</span></div>
+    <div class="prog-bar"><div class="prog-fill" id="qProg" style="width:0%"></div></div>
+    <div class="card card-rb">
+      <div class="quiz-q" id="quizQ"></div>
+      <div class="q-opts" id="quizOpts"></div>
+      <div class="fb-box" id="quizFB"></div>
+      <button class="btn btn-red" id="qNextBtn" style="display:none" onclick="nextQ()">Continue →</button>
+    </div>
+  </div>
+  <div id="quizDone" style="display:none">
+    <div class="card card-rb">
+      <h3 style="font-size:1.2rem;margin-bottom:8px">Complete <span id="qBadge"></span></h3>
+      <p id="qMsg" style="font-size:.95rem;color:var(--gray-lt);margin-bottom:20px;line-height:1.7"></p>
+      <button class="btn-green" onclick="markDone('quiz');buildResults();nav('results')">Graduate →</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════ RESULTS ══════════ -->
+<div class="section" id="s-results">
+<div class="wrap" id="resultsWrap"></div>
+</div>
+
+<!-- ══════════════════ JS ══════════════════ -->
+<script>
+const ALL_SECS=['intro','synthesis','demo','impact','risk','future','quiz','results'];
+let completed=new Set(), sectionScores={};
+function nav(id){
+  ALL_SECS.forEach(s=>{
+    document.getElementById('s-'+s).classList.remove('active');
+    const t=document.getElementById('t-'+s);if(t)t.classList.remove('active');
+  });
+  document.getElementById('s-'+id).classList.add('active');
+  const t=document.getElementById('t-'+id);if(t)t.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='synthesis'&&!synthBuilt) buildSynthesis();
+  if(id==='demo'&&!demoBuilt) buildDemo();
+  if(id==='impact'&&!impactBuilt) buildImpact();
+  if(id==='risk'&&!riskBuilt) buildRisk();
+  if(id==='future'&&!futureBuilt) buildFuture();
+  if(id==='quiz'&&!qStarted) initQuiz();
+}
+function markDone(key){
+  completed.add(key);
+  document.getElementById('progressChip').textContent=completed.size+' / 5';
+  const d=document.getElementById('dot-'+key),l=document.getElementById('lbl-'+key);
+  if(d){d.className='rm-dot done';d.textContent='✓';}
+  if(l)l.className='rm-label done';
+}
+
+// ─── SYNTHESIS ─────────────────────────────────────────────────────────────
+let synthBuilt=false;
+const PHASES=[
+  {icon:'🧠',color:'var(--blue)',label:'Phase 1 · Understand',title:'What Agents Are & How They Work',
+   labs:[
+    {num:'LAB 01',title:'Introduction to Agentic AI',concept:'From LLM chatbots to autonomous agents — what changed and why it matters',connector:'Establishes the vocabulary for every lab that follows'},
+    {num:'LAB 02',title:'Anatomy of an Agent',concept:'Memory, tools, reasoning loops, and goal structures — the four components everything builds on',connector:'The component model is the mental model for all design decisions'},
+    {num:'LAB 03',title:'How Agents Work',concept:'The perception → reasoning → action → memory loop running continuously',connector:'The loop is the execution model; frameworks just implement it differently'},
+   ]},
+  {icon:'⚙️',color:'var(--teal)',label:'Phase 2 · Choose & Build',title:'Frameworks, Platforms & Prompt Engineering',
+   labs:[
+    {num:'LAB 04',title:'Frameworks & Ecosystems',concept:'LangChain vs. AutoGen vs. GPT Builder vs. Flowise — picking the right level of abstraction',connector:'Framework choice defines build speed, flexibility, and maintenance burden'},
+    {num:'LAB 06',title:'Structured Prompt Crafting',concept:'CTF framework: Context → Task → Format. The system prompt is the agent\'s intelligence layer',connector:'Every lab afterward is downstream of prompt quality'},
+    {num:'LAB 07',title:'Tool Integration Challenge',concept:'OpenAPI schemas, webhook patterns, and the 9 platform × tool pathway matrix',connector:'Tools give agents reach — without them, agents are expensive chatbots'},
+   ]},
+  {icon:'🔮',color:'var(--purple)',label:'Phase 3 · Specialize',title:'Memory, Dialogue & Case Analysis',
+   labs:[
+    {num:'LAB 05',title:'Case Analysis — Technical Lens',concept:'Reading a real use case and mapping tool zones, memory types, and reasoning sequences',connector:'Applied the component model to a messy real-world scenario'},
+    {num:'LAB 08',title:'Conversational Memory',concept:'Buffer vs. summary vs. vector memory — and the 8-step retrieval flow',connector:'Memory is what makes agents feel coherent across turns'},
+    {num:'LAB 09',title:'Case Analysis — Fraud Detection',concept:'Adversarial reasoning, edge case gauntlets, and silent failure audits',connector:'Showed how the same design principles apply at financial-grade reliability requirements'},
+    {num:'LAB 12',title:'Dialogue Design',concept:'Intent mapping, script nodes, persona testing, and feedback-driven refinement',connector:'The interface layer — how agents communicate is as important as what they do'},
+   ]},
+  {icon:'🔒',color:'var(--orange)',label:'Phase 4 · Secure & Ship',title:'Security, Integration & Ethics',
+   labs:[
+    {num:'LAB 10',title:'Secure Integration Project',concept:'Data minimization, field-level access control, live IDE with real API simulation',connector:'Security is not post-build — it\'s a design constraint from day one'},
+    {num:'LAB 11',title:'Process Automation Plan',concept:'Trigger architecture, step sequencing, deduplication, and lead routing simulation',connector:'Showed the full automation planning cycle from brief to simulation'},
+    {num:'LAB 13',title:'Agent Security Audit',concept:'Prompt injection, data exfiltration, trust boundaries, and the defense-in-depth stack',connector:'The threat model for production agents is fundamentally different from web apps'},
+   ]},
+  {icon:'📊',color:'var(--GA-red)',label:'Phase 5 · Operate & Evolve',title:'Build, Monitor & Iterate at Scale',
+   labs:[
+    {num:'LAB 14',title:'Building Your First Full Agent',concept:'End-to-end pipeline: plan → build → test live → measure → document',connector:'The capstone build — applying every prior lab to one complete prototype'},
+    {num:'LAB 15',title:'Monitoring & Orchestration',concept:'Dashboards, reasoning traces, root cause analysis, prompt diffs, and scalability patterns',connector:'What changes when you go from demo to 12,000 requests/month'},
+   ]},
+];
+const SYNTH_NODES=[
+  {txt:'System Prompt',col:'rgba(232,51,58,.15)',border:'rgba(232,51,58,.4)',tc:'#fca5a5'},
+  {txt:'Agent Loop',col:'rgba(59,130,246,.15)',border:'rgba(59,130,246,.4)',tc:'#93c5fd'},
+  {txt:'Tool Calling',col:'rgba(20,184,166,.15)',border:'rgba(20,184,166,.4)',tc:'#5eead4'},
+  {txt:'Memory',col:'rgba(168,85,247,.15)',border:'rgba(168,85,247,.4)',tc:'#d8b4fe'},
+  {txt:'Dialogue Design',col:'rgba(249,115,22,.15)',border:'rgba(249,115,22,.4)',tc:'#fdba74'},
+  {txt:'Security',col:'rgba(245,197,24,.12)',border:'rgba(245,197,24,.35)',tc:'var(--yellow)'},
+  {txt:'Evaluation',col:'rgba(34,197,94,.12)',border:'rgba(34,197,94,.35)',tc:'#86efac'},
+  {txt:'Monitoring',col:'rgba(139,92,246,.12)',border:'rgba(139,92,246,.35)',tc:'#c4b5fd'},
+];
+
+function buildSynthesis(){
+  synthBuilt=true;
+  const el=document.getElementById('courseMapEl');
+  PHASES.forEach(phase=>{
+    const block=document.createElement('div'); block.className='phase-block';
+    block.style.borderTop=`3px solid ${phase.color}`;
+    block.innerHTML=`<div class="phase-header">
+      <div class="phase-icon">${phase.icon}</div>
+      <div style="flex:1"><div class="phase-label" style="color:${phase.color}">${phase.label}</div><div class="phase-title">${phase.title}</div></div>
+      <div class="phase-arrow">▶</div>
+    </div>
+    <div class="phase-body">
+      <div style="display:grid;grid-template-columns:80px 1fr 1fr;gap:6px;padding:10px 0 4px;border-bottom:1px solid var(--line);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-dk)"><span>Module</span><span>Core Concept</span><span>How It Connects</span></div>
+      ${phase.labs.map(l=>`<div class="lab-row"><span class="lab-num">${l.num}</span><div style="flex:1"><div class="lab-title">${l.title}</div><div class="lab-concept">${l.concept}</div></div><div class="lab-connector">${l.connector}</div></div>`).join('')}
+    </div>`;
+    block.querySelector('.phase-header').addEventListener('click',()=>{
+      block.classList.toggle('open');
+      block.querySelector('.phase-arrow').textContent=block.classList.contains('open')?'▼':'▶';
+    });
+    el.appendChild(block);
+  });
+  // Synth ring
+  const ring=document.getElementById('synthRing');
+  ring.innerHTML=`<div style="width:100%;display:flex;justify-content:center;margin-bottom:16px"><div class="synth-node synth-center" style="background:var(--GA-red)">🤖 AGENT</div></div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center">
+    ${SYNTH_NODES.map(n=>`<div class="synth-node" style="background:${n.col};border:1.5px solid ${n.border};color:${n.tc}">${n.txt}</div>`).join('')}
+  </div>`;
+}
+
+// ─── DEMO / PRESENTATION ─────────────────────────────────────────────────────
+let demoBuilt=false, demoSubmitted=false;
+const PRES_SECTIONS=[
+  {id:'agent_name',type:'input',label:'Agent Name & One-Line Purpose',badge:'30 SECONDS',badgeColor:'var(--blue)',
+   hint:'Name your agent. Then write its one-line purpose: "[Agent name] helps [user] [do X] so they can [achieve Y]." This is the only sentence that must survive a 10x zoom out.',
+   placeholder:'e.g. ContentPilot — helps marketing teams generate platform-specific content ideas in 8 seconds instead of 30 minutes'},
+  {id:'workflow',type:'textarea',label:'Workflow Walkthrough (3 Steps Max)',badge:'90 SECONDS',badgeColor:'var(--green)',
+   hint:'Describe your agent\'s pipeline in 3 concrete steps. Format: "First, [input] → then [reasoning/tool] → finally [output]." Concrete beats comprehensive — one real example beats a system diagram.',
+   placeholder:'Step 1: User enters topic + target audience → Step 2: Agent constructs a CTF-structured prompt, calls Claude, validates output for specificity → Step 3: Returns 5–7 platform-specific post ideas, each with angle + hook element, in under 6 seconds'},
+  {id:'challenge',type:'textarea',label:'One Challenge Overcome',badge:'45 SECONDS',badgeColor:'var(--orange)',
+   hint:'Describe one failure you encountered, what caused it (reference a specific pipeline stage or prompt rule), and what you changed. This shows that you understand the system deeply — not just that it works, but why.',
+   placeholder:'Challenge: Idea Specificity score was 54% in beta — users received generic ideas like "Write about AI" that required full rewriting. Root cause: the system prompt rule didn\'t define what "specific" meant. Fix: added a RULE requiring each idea to include a specific angle, hook element, and narrative form. Result: Specificity improved to 81%.'},
+  {id:'business_value',type:'textarea',label:'Business Value & One Metric',badge:'30 SECONDS',badgeColor:'var(--teal)',
+   hint:'State the business case in one sentence, then anchor it with one concrete metric. Avoid vague claims ("saves time") — quantify ("reduces content ideation from 45 minutes to 8 seconds per topic").',
+   placeholder:'ContentPilot reduces content ideation time by 90% (45 min → 4 min per topic) for teams posting 5x/week — equivalent to recovering 3.5 hours of creator time per week, per user.'},
+  {id:'next_version',type:'input',label:'What Version 2.0 Does Differently',badge:'FORWARD LOOK',badgeColor:'var(--purple)',
+   hint:'One concrete capability upgrade for the next version. Be specific — not "make it smarter" but "add a Brand Voice Calibration step that ingests 3 past posts to personalize output tone."',
+   placeholder:'v2.0 adds Brand Voice Calibration — users paste 3 past posts, which are used as few-shot examples in every prompt, personalizing tone and reducing editing time by an additional 60%.'},
+];
+function buildDemo(){
+  demoBuilt=true;
+  const el=document.getElementById('presBuilder');
+  PRES_SECTIONS.forEach(s=>{
+    const div=document.createElement('div'); div.className='pres-section'; div.id='ps-'+s.id;
+    const inputHtml=s.type==='input'
+      ?`<input class="pres-input" id="pi-${s.id}" placeholder="${s.placeholder}" oninput="checkPres('${s.id}')"/>`
+      :`<textarea class="pres-textarea" id="pi-${s.id}" placeholder="${s.placeholder}" rows="3" oninput="checkPres('${s.id}')"></textarea>`;
+    div.innerHTML=`<div class="pres-label">${s.label}<span class="pres-badge" style="background:${s.badgeColor}22;color:${s.badgeColor};border:1px solid ${s.badgeColor}44">${s.badge}</span></div><div class="pres-hint">${s.hint}</div>${inputHtml}`;
+    el.appendChild(div);
+  });
+}
+function checkPres(id){
+  const val=document.getElementById('pi-'+id).value.trim();
+  document.getElementById('ps-'+id).classList.toggle('filled',val.length>20);
+}
+function submitDemo(){
+  if(demoSubmitted)return; demoSubmitted=true;
+  let filled=0;
+  PRES_SECTIONS.forEach(s=>{if(document.getElementById('pi-'+s.id).value.trim().length>20)filled++;});
+  const name=document.getElementById('pi-agent_name').value.trim()||'Your Agent';
+  const workflow=document.getElementById('pi-workflow').value.trim()||'—';
+  const challenge=document.getElementById('pi-challenge').value.trim()||'—';
+  const value=document.getElementById('pi-business_value').value.trim()||'—';
+  const next=document.getElementById('pi-next_version').value.trim()||'—';
+  sectionScores.demo={earned:filled,possible:5};
+  const preview=document.getElementById('slidePreview');
+  preview.style.display='block';
+  preview.innerHTML=`<div class="hr" style="margin:16px 0"/>
+    <span class="eyebrow">Slide Preview</span>
+    <div class="slide-preview">
+      <div class="slide-header"><span class="slide-header-title">Final Agent Demonstration — Build AI Agents · BAA</span><span style="font-size:.7rem;color:rgba(255,255,255,.6)">${filled}/5 sections filled</span></div>
+      <div class="slide-body">
+        <div class="slide-agent-title">${name.split('—')[0].trim()}</div>
+        <div class="slide-tagline" style="margin-bottom:20px">${name.includes('—')?name.split('—').slice(1).join('—').trim():''}</div>
+        <div class="slide-grid">
+          <div class="slide-cell"><div class="slide-cell-label">Workflow</div>${workflow.substring(0,200)}${workflow.length>200?'…':''}</div>
+          <div class="slide-cell"><div class="slide-cell-label">Challenge Overcome</div>${challenge.substring(0,200)}${challenge.length>200?'…':''}</div>
+          <div class="slide-cell"><div class="slide-cell-label">Business Value</div>${value.substring(0,200)}${value.length>200?'…':''}</div>
+        </div>
+        <div style="margin-top:12px;padding:12px 16px;background:rgba(168,85,247,.08);border:1px solid rgba(168,85,247,.2);border-radius:var(--r-lg);font-size:.82rem;color:#d8b4fe;line-height:1.6"><strong style="color:#fff">v2.0: </strong>${next.substring(0,180)}</div>
+      </div>
+    </div>
+    <div class="callout ${filled>=4?'callout-success':'callout-warn'}" style="margin-top:8px"><strong>${filled}/5 sections complete.</strong> ${filled>=4?'Strong presentation structure. All key elements are in place.':filled>=3?'Fill the remaining sections before your demo — reviewers will ask about each.':'Complete all 5 sections. An incomplete demo structure loses credibility before you speak.'}</div>`;
+  document.getElementById('demoNextBtn').style.display='inline-flex';
+  if(filled>=3)markDone('demo');
+}
+
+// ─── IMPACT ───────────────────────────────────────────────────────────────────
+let impactBuilt=false;
+const IMPACT_DIMS=[
+  {id:'roi',label:'Expected ROI',desc:'Measurable cost savings or revenue generation',low:'Unclear / speculative',high:'Clear, quantified business case'},
+  {id:'scalability',label:'Scalability',desc:'Can it handle 10x demand without redesign?',low:'Single use case, brittle',high:'Architected for scale'},
+  {id:'ttv',label:'Time to Value',desc:'How quickly does it deliver value after deployment?',low:'Weeks of setup required',high:'Value in first session'},
+  {id:'risk',label:'Risk Profile',desc:'How well are risks identified and mitigated? (10 = low risk)',low:'High risk, few guardrails',high:'Comprehensive risk controls'},
+  {id:'differentiation',label:'Differentiation',desc:'Does this give users a capability they couldn\'t get otherwise?',low:'Incremental improvement',high:'Fundamentally new capability'},
+];
+let impactVals={roi:6,scalability:6,ttv:7,risk:6,differentiation:7};
+
+function buildImpact(){
+  impactBuilt=true;
+  const el=document.getElementById('impactSliders');
+  IMPACT_DIMS.forEach(dim=>{
+    const row=document.createElement('div'); row.className='impact-row';
+    row.innerHTML=`<div class="impact-label"><strong style="color:#fff;display:block">${dim.label}</strong><span style="font-size:.78rem;color:var(--gray-dk)">${dim.desc}</span></div>
+      <input type="range" class="impact-slider" min="1" max="10" value="${impactVals[dim.id]}" id="is-${dim.id}" oninput="updateImpact('${dim.id}',this.value)"/>
+      <div class="impact-val" id="iv-${dim.id}" style="color:${getImpactColor(impactVals[dim.id])}">${impactVals[dim.id]}/10</div>`;
+    el.appendChild(row);
+  });
+  setTimeout(()=>{drawRadar();updateImpactSummary();},100);
+}
+function getImpactColor(v){return v>=8?'var(--green)':v>=5?'var(--yellow)':'var(--GA-red)';}
+function updateImpact(id,val){
+  impactVals[id]=parseInt(val);
+  const c=getImpactColor(parseInt(val));
+  document.getElementById('iv-'+id).textContent=val+'/10';
+  document.getElementById('iv-'+id).style.color=c;
+  drawRadar(); updateImpactSummary();
+}
+function drawRadar(){
+  const canvas=document.getElementById('radarCanvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const W=canvas.width,H=canvas.height,cx=W/2,cy=H/2,R=100;
+  ctx.clearRect(0,0,W,H);
+  const dims=IMPACT_DIMS; const n=dims.length;
+  const angles=dims.map((_,i)=>(-Math.PI/2)+(i/n)*Math.PI*2);
+  // grid
+  [2,4,6,8,10].forEach(v=>{
+    ctx.beginPath();
+    angles.forEach((a,i)=>{const r=(v/10)*R;const x=cx+r*Math.cos(a),y=cy+r*Math.sin(a);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+    ctx.closePath(); ctx.strokeStyle=v===10?'rgba(255,255,255,.08)':'rgba(255,255,255,.04)'; ctx.lineWidth=1; ctx.stroke();
+  });
+  // spokes
+  angles.forEach(a=>{ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+R*Math.cos(a),cy+R*Math.sin(a));ctx.strokeStyle='rgba(255,255,255,.07)';ctx.lineWidth=1;ctx.stroke();});
+  // data
+  ctx.beginPath();
+  dims.forEach((dim,i)=>{const r=(impactVals[dim.id]/10)*R;const x=cx+r*Math.cos(angles[i]),y=cy+r*Math.sin(angles[i]);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+  ctx.closePath();
+  ctx.fillStyle='rgba(232,51,58,.2)'; ctx.fill();
+  ctx.strokeStyle='var(--GA-red)'; ctx.lineWidth=2; ctx.stroke();
+  // dots + labels
+  dims.forEach((dim,i)=>{
+    const r=(impactVals[dim.id]/10)*R;const x=cx+r*Math.cos(angles[i]),y=cy+r*Math.sin(angles[i]);
+    ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fillStyle='var(--GA-red)';ctx.fill();
+    const lx=cx+(R+20)*Math.cos(angles[i]),ly=cy+(R+20)*Math.sin(angles[i]);
+    ctx.font='700 10px Barlow';ctx.fillStyle='rgba(255,255,255,.5)';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(dim.label.split(' ')[0],lx,ly);
+  });
+}
+function updateImpactSummary(){
+  const avg=(Object.values(impactVals).reduce((s,v)=>s+v,0)/IMPACT_DIMS.length).toFixed(1);
+  const tier=avg>=8?{l:'High-Value Agent',c:'var(--green)',e:'🏆'}:avg>=6?{l:'Solid Business Case',c:'var(--yellow)',e:'✅'}:{l:'Early-Stage Prototype',c:'var(--gray)',e:'🔬'};
+  const strongest=IMPACT_DIMS.reduce((a,b)=>impactVals[a.id]>impactVals[b.id]?a:b);
+  const weakest=IMPACT_DIMS.reduce((a,b)=>impactVals[a.id]<impactVals[b.id]?a:b);
+  document.getElementById('impactSummary').innerHTML=`
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-dk);margin-bottom:12px">Assessment</div>
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <div style="font-size:2rem">${tier.e}</div>
+      <div><div style="font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;color:${tier.c}">${tier.l}</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--gray-dk)">Avg score: ${avg}/10</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:.86rem">
+      <div style="background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.2);border-radius:var(--r-lg);padding:12px"><strong style="color:var(--green);display:block;margin-bottom:3px">💪 Strongest: ${strongest.label} (${impactVals[strongest.id]}/10)</strong><span style="color:var(--gray-lt)">${strongest.high}</span></div>
+      <div style="background:rgba(232,51,58,.07);border:1px solid rgba(232,51,58,.2);border-radius:var(--r-lg);padding:12px"><strong style="color:var(--GA-red);display:block;margin-bottom:3px">🎯 Needs work: ${weakest.label} (${impactVals[weakest.id]}/10)</strong><span style="color:var(--gray-lt)">Focus on: ${weakest.low} → ${weakest.high}</span></div>
+      <div style="background:var(--black3);border-radius:var(--r-lg);padding:12px;font-size:.82rem;color:var(--gray-dk);line-height:1.65">💡 <strong style="color:var(--gray-lt)">Stakeholder tip:</strong> Lead with your strongest dimension in the first 30 seconds. Acknowledge your weakest proactively — propose the v2.0 plan that closes the gap.</div>
+    </div>`;
+  sectionScores.impact={earned:Math.round(avg*0.5),possible:5};
+}
+
+// ─── RISK ────────────────────────────────────────────────────────────────────
+let riskBuilt=false, riskAnswered=false;
+const RISKS=[
+  {label:'Hallucination',short:'Hall.',likelihood:0.7,impact:0.75,color:'var(--GA-red)',
+   desc:'Agent produces factually incorrect outputs, especially in summary mode without source text.',mitigation:'Pre-flight validation: reject summary calls without input text. Async quality scorer flags hallucination risk post-delivery.'},
+  {label:'Prompt Injection',short:'Inj.',likelihood:0.4,impact:0.9,color:'var(--GA-red)',
+   desc:'Malicious user input overrides system prompt instructions, causing out-of-policy behavior.',mitigation:'Input sanitization, system prompt isolation, and a content policy layer that rejects known injection patterns.'},
+  {label:'Data Drift',short:'Drift',likelihood:0.8,impact:0.55,color:'var(--yellow)',
+   desc:'Base model updates silently degrade output quality over time with no code changes.',mitigation:'Daily eval suite against 50 golden inputs. Automated regression alerts when any metric drops >5% from baseline.'},
+  {label:'Latency Creep',short:'Lat.',likelihood:0.75,impact:0.45,color:'var(--yellow)',
+   desc:'P95 latency increases gradually as system prompt and memory context grow unboundedly.',mitigation:'Token budget alerts at 900 tokens. Sliding window memory cap. Prompt compression quarterly audit.'},
+  {label:'PII Exposure',short:'PII',likelihood:0.3,impact:0.95,color:'var(--GA-red)',
+   desc:'User-provided content containing PII is logged, stored, or sent to LLM without anonymization.',mitigation:'PII detection regex at Stage 1. Hash-only logging. LLM provider DPA in place. No raw text in memory store.'},
+  {label:'Cost Runaway',short:'Cost',likelihood:0.65,impact:0.4,color:'var(--green)',
+   desc:'Token costs scale super-linearly as user history grows, exceeding budget projections.',mitigation:'Per-request token budget cap. Memory sliding window. Cost anomaly alert at 2x 7-day rolling average.'},
+  {label:'Over-Automation',short:'Auto',likelihood:0.5,impact:0.7,color:'var(--orange)',
+   desc:'Agent is extended to take irreversible actions (send emails, post content) without human review.',mitigation:'Human-in-the-loop checkpoint before any action that cannot be undone. Clear scope boundaries in system prompt.'},
+  {label:'Scope Creep',short:'Scope',likelihood:0.6,impact:0.35,color:'var(--green)',
+   desc:'Users attempt to use agent for tasks outside its design scope, degrading output quality.',mitigation:'Explicit system prompt scope boundaries. Out-of-scope requests redirect with explanation and alternatives.'},
+];
+
+function buildRisk(){
+  riskBuilt=true;
+  const matrix=document.getElementById('riskMatrix');
+  // 3×3 grid cells (low/med/high likelihood × low/med/high impact)
+  const cells=[
+    {bg:'rgba(34,197,94,.06)',label:'Low Risk'},  {bg:'rgba(245,197,24,.06)',label:'Monitor'},    {bg:'rgba(245,197,24,.09)',label:'Watch'},
+    {bg:'rgba(245,197,24,.06)',label:'Manage'},    {bg:'rgba(245,197,24,.09)',label:'Priority'},   {bg:'rgba(232,51,58,.09)',label:'High Risk'},
+    {bg:'rgba(245,197,24,.09)',label:'Mitigate'},  {bg:'rgba(232,51,58,.09)',label:'High Risk'},   {bg:'rgba(232,51,58,.14)',label:'Critical'},
+  ];
+  // Render grid (bottom-left = low/low, top-right = high/high)
+  // Impact Y: row 0=high, row 2=low; Likelihood X: col 0=low, col 2=high
+  cells.forEach((c,i)=>{
+    const div=document.createElement('div'); div.className='risk-cell';
+    div.style.background=c.bg; div.textContent=c.label;
+    matrix.appendChild(div);
+  });
+  // Overlay risk dots
+  RISKS.forEach(r=>{
+    // Convert likelihood 0-1 and impact 0-1 to percentage positions in the matrix
+    const xPct=r.likelihood*100; // left%
+    const yPct=(1-r.impact)*100; // top%
+    const item=document.createElement('div'); item.className='risk-item';
+    item.style.cssText=`left:${xPct}%;top:${yPct}%;position:absolute`;
+    item.innerHTML=`<div class="risk-dot" style="background:${r.color};width:12px;height:12px;border-radius:50%;border:2px solid rgba(0,0,0,.5)"></div>
+      <div style="font-size:.58rem;font-weight:700;color:${r.color};margin-top:2px;text-align:center;white-space:nowrap">${r.short}</div>
+      <div class="risk-card" style="left:${r.likelihood>0.6?'auto':'0'};right:${r.likelihood>0.6?'0':'auto'}">
+        <strong style="color:#fff;display:block;margin-bottom:4px">${r.label}</strong>
+        <div style="color:var(--gray-lt);margin-bottom:6px">${r.desc}</div>
+        <div style="font-size:.72rem;color:var(--green)">✓ Mitigation: ${r.mitigation}</div>
+      </div>`;
+    matrix.style.position='relative';
+    matrix.appendChild(item);
+  });
+  buildRiskMCQ();
+}
+function buildRiskMCQ(){
+  const el=document.getElementById('riskMCQ');
+  const opts=[
+    {k:'A',t:'Wait until a risk occurs in production, then implement a fix — this avoids premature optimization.',ans:false,fb:'Reactive mitigation is expensive. For risks like PII Exposure or Prompt Injection, a single incident in production can cause legal liability, user churn, and reputational damage that far exceeds the cost of proactive defense. "Premature optimization" applies to performance — not safety.'},
+    {k:'B',t:'Implement defense-in-depth: enforce the most critical mitigations at the code/orchestration layer, and add prompt-level guardrails as a second layer — so failure of one layer doesn\'t mean system failure.',ans:true,fb:'Correct. Defense-in-depth means no single point of protection. Code-level checks (Stage 1 validation, PII detection regex) are deterministic — they fire every time. Prompt-level rules are probabilistic — they\'re a second layer, not the primary defense. For the highest-impact risks, both layers should be present and independently tested.'},
+    {k:'C',t:'Only mitigate risks that users explicitly complain about — user feedback is the most reliable signal.',ans:false,fb:'User feedback captures a fraction of actual failures. Users rarely report hallucinations (they can\'t detect them), PII mishandling (they don\'t know it happened), or scope violations (they assume it\'s intended behavior). Monitoring, eval suites, and proactive audits surface what user feedback misses.'},
+    {k:'D',t:'Switch to a larger, safer model — bigger models have fewer failure modes.',ans:false,fb:'Model size correlates with capability, not safety. Larger models hallucinate less often, but the hallucinations they produce are often more convincing and harder to detect. Safety comes from system design — pre-flight validation, output quality scoring, and audit logging — not from model size alone.'},
+  ];
+  const L=['A','B','C','D'];
+  opts.forEach((opt,i)=>{
+    const btn=document.createElement('button'); btn.className='mcq-opt';
+    btn.innerHTML=`<div class="opt-k">${L[i]}</div><div>${opt.t}</div>`;
+    btn.addEventListener('click',()=>{
+      if(riskAnswered)return; riskAnswered=true;
+      el.querySelectorAll('.mcq-opt').forEach((b,j)=>{
+        b.classList.add('disabled');
+        if(opts[j].ans)b.classList.add('correct');
+        else if(b===btn&&!opt.ans)b.classList.add('wrong');
+      });
+      const fb=document.getElementById('riskFB'); fb.style.display='block';
+      fb.className='mcq-fb show '+(opt.ans?'ok':'bad');
+      fb.innerHTML=`<strong>${opt.ans?'✓ Correct:':'Not quite:'}</strong> ${opt.fb}`;
+      sectionScores.risk={earned:opt.ans?1:0,possible:1};
+      markDone('risk');
+      document.getElementById('riskNext').style.display='block';
+    });
+    el.appendChild(btn);
+  });
+}
+
+// ─── FUTURES ─────────────────────────────────────────────────────────────────
+let futureBuilt=false, futureOpened=new Set(), futureAnswered=new Set();
+const FUTURES=[
+  {icon:'🤝',horizon:'12 MONTHS',horizonColor:'var(--blue)',
+   title:'Multi-Agent Systems — Agents That Hire Agents',
+   impact:88,
+   body:`The agents you built are single-agent systems: one reasoning loop, one tool set, one memory. Multi-agent systems distribute work across specialized agents. An orchestrator agent decides which sub-agent to delegate to — a researcher, a writer, a validator — and coordinates the results into a unified output. The coordination layer is the new engineering frontier. Today: Autogen, CrewAI, LangGraph. Tomorrow: autonomous agent teams that self-assemble based on task requirements.`,
+   q:'An orchestrator agent delegates a research task to a sub-agent that returns inaccurate information. Who is responsible for the error in the final output — the orchestrator, the sub-agent, or the system designer?',
+   opts:[
+     {k:'A',t:'The sub-agent — it produced the inaccurate output.',score:1},
+     {k:'B',t:'The orchestrator — it should validate sub-agent outputs before accepting them.',score:2},
+     {k:'C',t:'The system designer — the responsibility belongs to the person who chose not to implement output validation at the integration layer.',score:3},
+     {k:'D',t:'Shared accountability across all three — and the system should be designed to detect and surface errors at each handoff.',score:3},
+   ]},
+  {icon:'🌐',horizon:'12 MONTHS',horizonColor:'var(--blue)',
+   title:'Browser & Computer-Use Agents — The Real World as a Tool',
+   impact:80,
+   body:`Current agents call APIs. Upcoming agents browse real websites, fill real forms, and operate desktop applications — using the same interfaces humans use. Anthropic's Computer Use API, OpenAI's Operator, and Google's Project Mariner all point in this direction. This eliminates the API integration problem: if a website exists, an agent can use it. The implications for automation are enormous. The implications for security and verification are equally enormous — an agent that can browse can also be misled by adversarial web content.`,
+   q:'A browser-use agent is tasked with booking a meeting room. It encounters a web form with ambiguous field labels. What is the safest agent behavior?',
+   opts:[
+     {k:'A',t:'Fill in the most likely interpretation and proceed.',score:1},
+     {k:'B',t:'Stop and ask the user to clarify before submitting the form.',score:3},
+     {k:'C',t:'Try multiple interpretations and pick whichever succeeds.',score:1},
+     {k:'D',t:'Log the ambiguity, surface it to the user with the proposed interpretation, and wait for confirmation before submitting.',score:3},
+   ]},
+  {icon:'🧪',horizon:'24 MONTHS',horizonColor:'var(--yellow)',
+   title:'Autonomous Research Agents — From Retrieval to Discovery',
+   impact:92,
+   body:`The current state: agents retrieve existing information. The near-term frontier: agents generate hypotheses, design experiments (in simulation or with real tools), and iterate toward novel insights. Early versions exist in scientific domains — AlphaFold didn't just retrieve protein structures, it predicted them. The next generation of research agents will operate across more domains: materials science, drug discovery, software architecture, and business strategy. The human role shifts from doing the research to setting the research agenda and evaluating the results.`,
+   q:'If an autonomous research agent identifies a breakthrough finding that no human has verified, what should happen before it is acted upon?',
+   opts:[
+     {k:'A',t:'Act on it immediately — the agent\'s reasoning process is the verification.',score:0},
+     {k:'B',t:'Have another agent verify it — multi-agent consensus is sufficient.',score:1},
+     {k:'C',t:'Route it to a human expert with the full reasoning trace for verification before any action is taken.',score:3},
+     {k:'D',t:'Publish it publicly so the broader community can verify — open verification is more robust than internal review.',score:2},
+   ]},
+  {icon:'🧠',horizon:'24 MONTHS',horizonColor:'var(--yellow)',
+   title:'Persistent Memory & Evolving Agent Identity',
+   impact:75,
+   body:`Today's agents forget everything between sessions unless you explicitly engineer memory. The emerging paradigm is persistent, evolving memory: agents that remember your preferences, communication style, past decisions, and context across months. This creates a fundamentally different relationship — more like a long-term collaborator than a tool. The design challenges are enormous: what should agents forget? Who controls the memory? How do you prevent memory poisoning? What happens when an agent's "personality" drifts from accumulated context? These aren't engineering questions alone — they're product, ethical, and legal questions.`,
+   q:'A persistent memory agent has been learning a user\'s preferences for 6 months. The user changes jobs and their needs completely change. What is the correct behavior?',
+   opts:[
+     {k:'A',t:'Retain all prior memory — it may become relevant again.',score:1},
+     {k:'B',t:'Automatically wipe all memory and start fresh.',score:1},
+     {k:'C',t:'Give users explicit control over what memory is retained, archived, or deleted — with a "memory review" interface.',score:3},
+     {k:'D',t:'Infer from behavioral signals that the context has changed and automatically adjust weighting of old vs. new context.',score:2},
+   ]},
+  {icon:'⚖️',horizon:'36 MONTHS',horizonColor:'var(--orange)',
+   title:'Agent Governance & Regulatory Frameworks',
+   impact:85,
+   body:`The EU AI Act has already created the first binding legal framework for AI systems. Agentic systems — especially those that take consequential real-world actions — will face increasing regulatory scrutiny: audit trail requirements, explainability mandates, liability frameworks, and sector-specific restrictions (healthcare, finance, legal). The "agent designer" role of the future will require fluency in compliance as much as in code. Every decision you made in the security and logging labs — audit trails, human-in-the-loop checkpoints, output quality scoring — will be required by law in regulated sectors within this decade.`,
+   q:'An AI agent operating in healthcare takes an action based on patient data that leads to an adverse outcome. Under a future regulatory framework, who should bear primary legal liability?',
+   opts:[
+     {k:'A',t:'The model provider — they produced the underlying AI.',score:1},
+     {k:'B',t:'The organization that deployed the agent — they accepted the operational risk.',score:2},
+     {k:'C',t:'The agent designer — they built the system that took the action.',score:2},
+     {k:'D',t:'Liability should be distributed based on where the failure occurred in the chain: model, deployment configuration, or operational oversight — with shared accountability across all parties.',score:3},
+   ]},
+  {icon:'🔁',horizon:'36 MONTHS',horizonColor:'var(--orange)',
+   title:'Self-Improving Agents — The Feedback Loop Closes',
+   impact:95,
+   body:`The most significant frontier: agents that improve their own prompts, reasoning strategies, and tool configurations based on performance data — without human intervention in each cycle. Early signals exist: DSPy automatically optimizes prompts using gradient-like feedback. Constitutional AI trains models using AI-generated feedback. The long-term trajectory is agents that run their own eval suites, identify failure modes, propose system prompt patches, and deploy them — closing the build-monitor-refine loop without a human in the middle. The question this raises is not technical but philosophical: at what point does the agent become the designer?`,
+   q:'A self-improving agent modifies its own system prompt after detecting low specificity scores. The new prompt improves specificity but also causes the agent to refuse more user requests as "out of scope." No human reviewed the change. What is the core problem?',
+   opts:[
+     {k:'A',t:'The specificity improvement wasn\'t worth the trade-off.',score:1},
+     {k:'B',t:'The agent lacked a multi-metric optimization function — it improved one metric at the cost of another without human awareness.',score:2},
+     {k:'C',t:'Any self-modification to an agent\'s core instructions without human review violates the human-in-the-loop principle, regardless of the metric outcome.',score:3},
+     {k:'D',t:'The eval suite was too narrow — it should have included user request acceptance rate as a success metric.',score:2},
+   ]},
+];
+
+function buildFuture(){
+  futureBuilt=true;
+  const el=document.getElementById('futureList');
+  FUTURES.forEach((f,i)=>{
+    const card=document.createElement('div'); card.className='future-card'; card.id='fc-'+i;
+    card.innerHTML=`<div class="future-header">
+      <div class="future-icon">${f.icon}</div>
+      <div style="flex:1"><div class="future-title">${f.title}</div></div>
+      <span class="future-horizon" style="background:${f.horizonColor}22;color:${f.horizonColor};border:1px solid ${f.horizonColor}44">${f.horizon}</span>
+      <span class="future-arrow">▶</span>
+    </div>
+    <div class="future-body">
+      <div style="display:flex;align-items:center;gap:10px;margin:12px 0">
+        <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-dk)">Industry Impact</div>
+        <div class="future-impact-bar" style="flex:1"><div class="future-impact-fill" style="width:${f.impact}%;background:${f.horizonColor}"></div></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.75rem;color:${f.horizonColor}">${f.impact}%</div>
+      </div>
+      <div style="font-size:.9rem;color:var(--gray-lt);line-height:1.8;margin-bottom:16px">${f.body}</div>
+      <div class="future-discuss">
+        <strong>💬 Discussion: ${f.q}</strong>
+        <div id="fq-opts-${i}" style="margin-top:12px"></div>
+        <div id="fq-fb-${i}" style="display:none;margin-top:8px;font-size:.83rem;color:var(--gray-lt)"></div>
+      </div>
+    </div>`;
+    card.querySelector('.future-header').addEventListener('click',()=>{
+      card.classList.toggle('open');
+      card.querySelector('.future-arrow').textContent=card.classList.contains('open')?'▼':'▶';
+      if(card.classList.contains('open')){
+        futureOpened.add(i);
+        buildFutureQ(i,f);
+        document.getElementById('futureProgress').textContent=`${futureOpened.size} / 6 topics explored`;
+        if(futureOpened.size>=5) document.getElementById('futureNext').style.display='block';
+        if(futureOpened.size>=5) markDone('future');
+      }
+    });
+    el.appendChild(card);
+  });
+}
+function buildFutureQ(i,f){
+  const el=document.getElementById('fq-opts-'+i);
+  if(el.children.length>0)return; // already built
+  f.opts.forEach((opt,j)=>{
+    const btn=document.createElement('button'); btn.className='fq-opt';
+    btn.innerHTML=`<div class="fq-k">${opt.k}</div><div>${opt.t}</div>`;
+    btn.addEventListener('click',()=>{
+      if(futureAnswered.has(i))return; futureAnswered.add(i);
+      el.querySelectorAll('.fq-opt').forEach((b,k)=>{
+        b.classList.add('disabled');
+        if(f.opts[k].score===3) b.classList.add('best');
+        else if(f.opts[k].score===2) b.classList.add('ok');
+      });
+      const fb=document.getElementById('fq-fb-'+i); fb.style.display='block';
+      const myScore=opt.score;
+      const maxScore=Math.max(...f.opts.map(o=>o.score));
+      fb.innerHTML=`<div class="callout ${myScore===maxScore?'callout-success':myScore>=2?'callout-warn':'callout-red'}">
+        ${myScore===maxScore?'<strong>Best answer.</strong>':myScore>=2?'<strong>Good thinking</strong> — but the strongest answer goes further:':'<strong>This approach has significant risks.</strong>'}
+        ${myScore<maxScore?` The highest-scoring choice: <em>${f.opts.find(o=>o.score===maxScore).t}</em>`:''}
+        <br/>There is no single "correct" answer to these questions — but the <strong>strongest responses always prioritize human oversight, multi-metric evaluation, and explicit accountability chains</strong> over pure efficiency or automation.
+      </div>`;
+    });
+    el.appendChild(btn);
+  });
+}
+
+// ─── QUIZ ─────────────────────────────────────────────────────────────────────
+const QUESTIONS=[
+  {q:'Which of the following best describes the central insight that connects all 15 modules of the Build AI Agents course?',
+   opts:['Larger models produce better agents — model selection is the most important decision','The model is the engine, but orchestration, constraint, evaluation, and monitoring are the vehicle. Agent intelligence emerges from how a model is structured and governed, not from the model alone.','Prompt engineering is the only skill that matters — everything else is infrastructure','No-code platforms have made agent-building accessible to everyone, eliminating the need for technical knowledge'],
+   ans:1,ok:'Correct. This is the through-line of the entire course. Every module — from anatomy to security to monitoring — addresses how to structure, constrain, evaluate, and evolve the systems around the model. The model is a component; the architecture is the product.',
+   bad:'Not quite. The course\'s central insight is that agents are systems, not models. The model is one component of a pipeline that includes memory, tools, validation, prompt engineering, security, and monitoring. Changing only the model rarely fixes a system-level problem.'},
+  {q:'You\'re evaluating whether to extend ContentPilot to automatically post generated content to LinkedIn without user review. Which framework principle from the course should guide this decision?',
+   opts:['If the agent produces high-quality output (>80% specificity), it is safe to automate posting','Add a human-in-the-loop checkpoint before any irreversible action — auto-posting is a scope expansion that removes the ability to undo a mistake','Automate everything to maximize the time-saving value proposition of the agent','Ask users if they want auto-posting and respect their individual preference'],
+   ans:1,ok:'Correct. Auto-posting is an irreversible action — a published post can\'t be unpublished without damage. The human-in-the-loop principle says that any action that can\'t be undone requires explicit human confirmation before execution, regardless of output quality scores. High quality ≠ appropriate for the specific context.',
+   bad:'Not quite. Output quality scores don\'t determine whether an action should be automated — the reversibility of the action does. Publishing content without human review removes the ability to catch appropriate-but-wrong decisions: the right content for the wrong audience, the right insight timed badly, the right draft on the wrong platform.'},
+  {q:'A new multi-agent framework allows your ContentPilot to delegate to specialized sub-agents: one for research, one for writing, one for editing. What is the new primary risk this architecture introduces?',
+   opts:['The system becomes too complex to maintain','Each inter-agent handoff is a potential failure injection point — errors that aren\'t validated at handoff boundaries propagate and compound through the pipeline','Sub-agents will produce better quality than the original single agent, reducing the value of the orchestrator','API costs increase linearly with the number of agents'],
+   ans:1,ok:'Correct. Multi-agent systems distribute both capability and risk. At each handoff, an unvalidated error from a sub-agent becomes the input to the next stage. Compound errors are harder to trace and more likely to produce confident-sounding wrong answers. The orchestrator must validate sub-agent outputs at every boundary — not just at the final output stage.',
+   bad:'Not quite. The primary new risk in multi-agent architecture is error propagation through unvalidated handoffs. Each agent in the chain accepts the previous agent\'s output as ground truth — unless you implement validation at every boundary. A hallucination from the research agent gets rewritten by the writer and refined by the editor, becoming increasingly polished and increasingly wrong.'},
+  {q:'What distinguishes a "demonstration" from a "prototype" when presenting an agent to business stakeholders?',
+   opts:['A demonstration is live; a prototype uses recorded video','A demonstration shows the agent doing exactly what it was optimized for in ideal conditions. A prototype shows what the agent does across a range of real-world inputs — including edge cases and failure modes. Stakeholders who fund deployments need to see the prototype, not the demo.','A prototype requires code; a demonstration can be no-code','There is no meaningful distinction — both show the agent working'],
+   ans:1,ok:'Correct. Demonstrations are curated to show the best case. Prototypes are evaluated across a realistic input distribution — including the cases where the agent struggles. Stakeholders who\'ve been burned by AI projects will ask "what happens when it fails" — the prototype answers that question; the demo avoids it.',
+   bad:'Not quite. The distinction matters for stakeholder trust. A polished demonstration of the happy path creates unrealistic expectations. A prototype evaluation — including edge cases, failure modes, and their mitigations — creates accurate expectations and demonstrates that the builder understands the system\'s real-world behavior.'},
+  {q:'The EU AI Act classifies AI systems by risk level and applies different compliance requirements to each tier. Which category would most agentic systems deployed in enterprise settings fall under?',
+   opts:['Minimal risk — no compliance requirements','Limited risk — transparency obligations only (chatbot must identify itself as AI)','High risk — requires audit trails, human oversight mechanisms, accuracy documentation, and CE marking before deployment','Unacceptable risk — banned from deployment in the EU'],
+   ans:2,ok:'Correct. Most enterprise agentic systems — especially those making consequential decisions about employees, customers, or operations — will be classified as High Risk under the EU AI Act. This means mandatory audit trails (the reasoning logs you built in Lab 15), human oversight mechanisms (the human-in-the-loop checkpoints from Lab 10), and ongoing monitoring (the dashboard from Lab 15). The skills from this course directly address these compliance requirements.',
+   bad:'Not quite. Enterprise agents that influence decisions affecting people — employees, customers, users — will typically be classified as High Risk under the EU AI Act. This is why the audit trail, human-in-the-loop, and monitoring capabilities you built in this course aren\'t just engineering best practices — they\'re becoming legal requirements for deployment in regulated markets.'},
+  {q:'In the context of self-improving agents, what is the key governance principle that must remain non-negotiable regardless of how capable the agent becomes?',
+   opts:['The agent must improve its own performance metrics by at least 5% per iteration','Any change to the agent\'s core instructions, scope, or behavior must be reviewed and approved by a human before taking effect in production','The agent should be able to modify itself without human oversight once it has demonstrated 90%+ performance','Self-improvement should be disabled to prevent unpredictable behavior'],
+   ans:1,ok:'Correct. As agents become more capable of self-modification, the human review requirement for core instruction changes becomes more, not less, important. A highly capable agent making unapproved changes to its own scope or behavior is the AI governance failure mode most worth preventing. Human review at this boundary is the last accountability checkpoint before full autonomy.',
+   bad:'Not quite. The governance principle for self-improving agents is that human oversight of core instruction changes must be maintained regardless of capability level. An agent that improves its specificity score by 10% but simultaneously narrows its scope, changes its tone, or expands its permissions has made changes the original designer didn\'t authorize. These must always go through human review.'},
+  {q:'Looking at the full arc of the Build AI Agents course: what is the correct order of priorities when building a production agent?',
+   opts:['Speed first → quality second → security third → monitoring last','Security first → quality second → monitoring third → speed last','Design for reliability, evaluate for quality, build security in from day one, and monitor continuously — these are concurrent requirements, not a sequential checklist','Get it working first, then add quality, then security, then monitoring as each becomes urgent'],
+   ans:2,ok:'Correct. The most important lesson from Labs 1–15 is that these dimensions are concurrent, not sequential. Security that\'s retrofitted is expensive and brittle. Quality that\'s unmeasured drifts invisibly. Monitoring that\'s added after deployment misses the baseline. The best agent builders think about all four dimensions simultaneously from the first design decision.',
+   bad:'Not quite. Security, quality, reliability, and monitoring are not a sequential checklist — they are concurrent design requirements. A production agent built in the order "make it work, then make it safe" will always have a gap between when it ships and when it\'s safe. The skills from this course are designed to be applied together, from the beginning.'},
+];
+let qIdx=0,qScore=0,qStarted=false,qAnswered=false;
+function initQuiz(){qStarted=true;qIdx=0;qScore=0;showQ();}
+function showQ(){
+  qAnswered=false;
+  const q=QUESTIONS[qIdx];
+  document.getElementById('qProg').style.width=(qIdx/QUESTIONS.length*100)+'%';
+  document.getElementById('qMeta').textContent=`Question ${qIdx+1} of ${QUESTIONS.length}`;
+  document.getElementById('qScoreTxt').textContent=`Score: ${qScore} / ${qIdx}`;
+  document.getElementById('quizQ').textContent=q.q;
+  document.getElementById('quizFB').className='fb-box';document.getElementById('quizFB').innerHTML='';
+  document.getElementById('qNextBtn').style.display='none';
+  const L=['A','B','C','D'];
+  document.getElementById('quizOpts').innerHTML=q.opts.map((o,i)=>
+    `<button class="q-opt" onclick="answerQ(${i})"><div class="q-opt-k">${L[i]}</div>${o}</button>`
+  ).join('');
+}
+function answerQ(i){
+  if(qAnswered)return; qAnswered=true;
+  const q=QUESTIONS[qIdx];const ok=i===q.ans;if(ok)qScore++;
+  document.querySelectorAll('.q-opt').forEach((el,idx)=>{
+    el.classList.add('disabled');
+    if(idx===q.ans)el.classList.add('correct');
+    else if(idx===i&&!ok)el.classList.add('wrong');
+  });
+  const fb=document.getElementById('quizFB');
+  fb.innerHTML=`<span style="font-size:1.1rem;flex-shrink:0">${ok?'✓':'✗'}</span><span>${ok?q.ok:q.bad}</span>`;
+  fb.className='fb-box show '+(ok?'ok':'bad');
+  document.getElementById('qScoreTxt').textContent=`Score: ${qScore} / ${qIdx+1}`;
+  document.getElementById('qNextBtn').style.display='inline-flex';
+  if(qIdx===QUESTIONS.length-1)document.getElementById('qNextBtn').textContent='Graduate →';
+}
+function nextQ(){qIdx++;if(qIdx>=QUESTIONS.length){showQuizDone();return;}showQ();}
+function showQuizDone(){
+  document.getElementById('quizActive').style.display='none';
+  document.getElementById('quizDone').style.display='block';
+  const pct=Math.round(qScore/QUESTIONS.length*100);
+  sectionScores.quiz={earned:qScore,possible:QUESTIONS.length};
+  if(pct>=70)markDone('quiz');
+  document.getElementById('qBadge').innerHTML=`<span style="background:${pct>=70?'rgba(34,197,94,.15)':'rgba(232,51,58,.15)'};color:${pct>=70?'var(--green)':'var(--GA-red)'};padding:3px 10px;border-radius:20px;font-size:.85rem;font-weight:700">${qScore}/${QUESTIONS.length} · ${pct}%</span>`;
+  document.getElementById('qMsg').textContent=pct>=90?`${pct}% — exceptional. You understand the full arc of agent design, from anatomy to governance to the future.`:pct>=70?`${pct}% — course-level mastery. You're ready to build, evaluate, and evolve production agents.`:`${pct}% — revisit the Course Map and Futures sections. The core insight: agents are systems, not models.`;
+}
+
+// ─── RESULTS ─────────────────────────────────────────────────────────────────
+function buildResults(){
+  const scoreMap=[
+    {label:'Course Synthesis',        e:completed.has('synthesis')?5:0,  p:5},
+    {label:'Final Presentation',      e:sectionScores.demo?.earned||0,   p:5},
+    {label:'Business Impact Eval',    e:sectionScores.impact?.earned||0, p:5},
+    {label:'Risk Assessment',         e:sectionScores.risk?.earned||0,   p:1},
+    {label:'Futures Explorer',        e:futureOpened.size,               p:6},
+    {label:'Final Knowledge Check',   e:sectionScores.quiz?.earned||0,   p:7},
+  ];
+  const te=scoreMap.reduce((s,x)=>s+x.e,0);
+  const tp=scoreMap.reduce((s,x)=>s+x.p,0);
+  const pct=tp>0?Math.round(te/tp*100):0;
+  const grade=pct>=90?{l:'Certified Agent Architect',e:'🏆',m:'Full-course mastery — from agent anatomy to multi-agent futures. You are equipped to design, build, secure, and evolve production-grade agentic systems.'}
+             :pct>=75?{l:'AI Agent Engineer',e:'⚙️',m:'Strong foundations across the full lifecycle. Ready to build and deploy production agents.'}
+             :pct>=60?{l:'Agent Builder',e:'🔨',m:'Good core skills. Revisit the Course Map to reinforce the connections between modules.'}
+                     :{l:'Agent Explorer',e:'🔍',m:'Keep building. Every prototype teaches you something the labs can\'t.'};
+  const circ=2*Math.PI*72,dash=circ*(1-pct/100);
+  const rows=scoreMap.map(item=>{
+    const p=item.p>0?Math.round(item.e/item.p*100):0;
+    const col=p>=80?'var(--green)':p>=50?'var(--yellow)':'var(--GA-red)';
+    return `<div class="score-row">
+      <div style="width:8px;height:8px;border-radius:50%;background:${col};flex-shrink:0"></div>
+      <span style="flex:1;font-size:.9rem;font-weight:500;color:var(--gray-lt)">${item.label}</span>
+      <div class="score-bar-wrap"><div class="score-bar-fill" style="width:${p}%;background:${col}"></div></div>
+      <span style="font-size:.82rem;color:var(--gray);min-width:38px;text-align:right">${item.e}/${item.p}</span>
+      <span style="background:${p>=80?'rgba(34,197,94,.15)':p>=50?'rgba(245,197,24,.15)':'rgba(232,51,58,.15)'};color:${col};padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;min-width:40px;text-align:center">${p}%</span>
+    </div>`;
+  }).join('');
+
+  document.getElementById('resultsWrap').innerHTML=`
+    <!-- GRADUATION HERO -->
+    <div style="text-align:center;padding:40px 0 48px;border-bottom:1px solid var(--line);margin-bottom:48px">
+      <div style="font-size:3.5rem;margin-bottom:16px;animation:float1 3s ease-in-out infinite">🎓</div>
+      <div class="hero-kicker" style="display:inline-flex;margin-bottom:16px"><div class="dot"></div>Course Complete · Build AI Agents · BAA</div>
+      <h1 style="font-size:clamp(2.4rem,6vw,4rem);margin-bottom:8px">${grade.l}</h1>
+      <p style="font-size:1.05rem;color:var(--gray-lt);max-width:540px;margin:0 auto 24px;line-height:1.7">${grade.m}</p>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:${pct>=75?'rgba(34,197,94,.1)':'rgba(232,51,58,.1)'};border:1px solid ${pct>=75?'rgba(34,197,94,.3)':'rgba(232,51,58,.3)'};border-radius:20px;padding:8px 20px">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:900;color:${pct>=75?'var(--green)':'var(--GA-red)'}">${pct}%</span>
+        <span style="color:var(--gray-lt);font-size:.9rem">final score</span>
+      </div>
+    </div>
+
+    <!-- SCORE BREAKDOWN -->
+    <span class="eyebrow">Score Breakdown — 16 Modules</span>
+    <div class="card" style="padding:8px 20px;margin-bottom:36px">${rows}</div>
+
+    <!-- COURSE MAP RECAP -->
+    <span class="eyebrow">What You Built — The Complete Framework</span>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:36px">
+      ${PHASES.map(p=>`<div style="background:var(--black2);border:1px solid var(--line);border-top:3px solid ${p.color};border-radius:var(--r-lg);padding:18px 20px">
+        <div style="font-size:1.4rem;margin-bottom:8px">${p.icon}</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:${p.color};margin-bottom:4px">${p.label}</div>
+        <div style="font-size:.9rem;font-weight:700;color:#fff;margin-bottom:8px">${p.title}</div>
+        <div style="display:flex;flex-direction:column;gap:4px">${p.labs.map(l=>`<div style="font-size:.78rem;color:var(--gray-dk)">✓ ${l.title}</div>`).join('')}</div>
+      </div>`).join('')}
+    </div>
+
+    <!-- THREE PRINCIPLES -->
+    <span class="eyebrow">Three Principles to Carry Forward</span>
+    <div class="card" style="padding:8px 20px;margin-bottom:28px">
+      ${[
+        {n:'01',t:'The model is the engine. The system is the product.',b:'You didn\'t just learn how to call an API. You learned how to design the memory, tools, dialogue, security, and monitoring layers that make an LLM reliable, safe, and valuable at scale. That system design is where the real work — and the real differentiation — lives.'},
+        {n:'02',t:'Measure before you improve. Log before you diagnose.',b:'Every refinement in this course started with data: a metric, a log entry, a quality score. The teams that build lasting AI products are the ones with monitoring in place before they ship, not after they get their first complaint. Your eval suite is as important as your system prompt.'},
+        {n:'03',t:'Autonomy earns trust — it doesn\'t assume it.',b:'The agents of the next decade will be capable of extraordinary things. The ones that actually get deployed at scale will be the ones designed with clear scope boundaries, human oversight at consequential decision points, and audit trails that answer "why did it do that?" The governance skills from this course will be as valuable as the engineering skills.'},
+      ].map(p=>`<div style="display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)"><div style="font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:900;color:var(--GA-red);flex-shrink:0;line-height:1;padding-top:4px">${p.n}</div><div><strong style="color:#fff;display:block;margin-bottom:5px;font-size:.96rem">${p.t}</strong><div style="font-size:.88rem;color:var(--gray-lt);line-height:1.7">${p.b}</div></div></div>`).join('')}
+    </div>
+
+    <!-- WHAT'S NEXT -->
+    <span class="eyebrow">Where to Go From Here</span>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:36px">
+      <div style="background:var(--black2);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px">
+        <div style="font-size:1.4rem;margin-bottom:8px">🏗</div>
+        <div style="font-size:.88rem;font-weight:700;color:#fff;margin-bottom:6px">Build a Second Agent</div>
+        <div style="font-size:.82rem;color:var(--gray-dk);line-height:1.6">Take everything you learned and build an agent for a different domain — customer support, research, code review, data analysis. The second build is where the principles become instincts.</div>
+      </div>
+      <div style="background:var(--black2);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px">
+        <div style="font-size:1.4rem;margin-bottom:8px">📊</div>
+        <div style="font-size:.88rem;font-weight:700;color:#fff;margin-bottom:6px">Instrument Your First Agent</div>
+        <div style="font-size:.82rem;color:var(--gray-dk);line-height:1.6">Add real monitoring to your final project — set up a quality eval suite, create a token budget alert, and run a 30-day performance review. Production operations are the next level.</div>
+      </div>
+      <div style="background:var(--black2);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px">
+        <div style="font-size:1.4rem;margin-bottom:8px">🤝</div>
+        <div style="font-size:.88rem;font-weight:700;color:#fff;margin-bottom:6px">Explore Multi-Agent Frameworks</div>
+        <div style="font-size:.82rem;color:var(--gray-dk);line-height:1.6">Try CrewAI, AutoGen, or LangGraph. Build a two-agent system where one orchestrates and one executes. The coordination layer is the new frontier.</div>
+      </div>
+      <div style="background:var(--black2);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px">
+        <div style="font-size:1.4rem;margin-bottom:8px">⚖️</div>
+        <div style="font-size:.88rem;font-weight:700;color:#fff;margin-bottom:6px">Read the EU AI Act</div>
+        <div style="font-size:.82rem;color:var(--gray-dk);line-height:1.6">The regulatory layer is coming. The practitioners who understand both the technical and governance dimensions of agentic AI will be the most valuable people in the room.</div>
+      </div>
+    </div>
+
+    <!-- CLOSE -->
+    <div style="background:linear-gradient(135deg,rgba(232,51,58,.1) 0%,rgba(168,85,247,.08) 50%,rgba(59,130,246,.08) 100%);border:1px solid rgba(232,51,58,.25);border-radius:var(--r-lg);padding:36px;text-align:center">
+      <div style="font-size:2.5rem;margin-bottom:12px;animation:float2 3.5s ease-in-out infinite">🤖</div>
+      <h2 style="font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:12px">The Agents You Build<br/>Shape How the Work Gets Done.</h2>
+      <p style="font-size:.98rem;color:var(--gray-lt);line-height:1.8;max-width:580px;margin:0 auto 24px">You started this course learning what an agent is. You're finishing it knowing how to design one that's reliable, secure, evaluated, and monitored — and how to explain it to a room full of people who will decide whether to deploy it. That's the full loop.<br/><br/><strong style="color:#fff">Now go build something that matters.</strong></p>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--gray-dk)">General Assembly · Build AI Agents · ${new Date().getFullYear()}</div>
+    </div>`;
+}
+</script>
+</body>
+</html>
