@@ -9,7 +9,7 @@ This is the capstone lab for General Assembly's **Build AI Agents (BAA)** course
 
 Students complete this lab after building, securing, and monitoring a production-ready agent prototype (ContentPilot) across Modules 2–15.
 
-**Live URL:** `https://pages.git.generalassemb.ly/Build-AI-Agents/CAPSTONE-and-Future-of-Agentic-AI/`
+**Live URL:** `https://ga-curriculum.github.io/capstone-and-future-of-agentic-ai/`
 
 ---
 
